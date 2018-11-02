@@ -1,0 +1,38 @@
+{
+    "model" : {
+        "backend":              "Full Yolo",
+        "input_size":           416,
+        "anchors":              [0.55,0.50, 0.96,0.94, 1.64,1.16, 2.18,2.09, 4.23,3.74],
+        "max_box_per_image":    5,        
+        "labels":               ["hand"]
+    },
+
+    "train": {
+        "train_image_folder":   
+"'./data/train/images/"
+        "train_annot_folder": 
+"'./data/train/annotations/",     
+          
+        "train_times":          8,
+        "pretrained_weights":   "yolo_hand.h5",
+        "batch_size":           16,
+        "learning_rate":        1e-4,
+        "nb_epochs":            1,
+        "warmup_epochs":        3,
+
+        "object_scale":         5.0 ,
+        "no_object_scale":      1.0,
+        "coord_scale":          1.0,
+        "class_scale":          1.0,
+
+        "saved_weights_name":   "yolo_hand.h5",
+        "debug":                true
+    },
+
+    "valid": {
+        "valid_image_folder":   "'./data/eval/images/",
+        "valid_annot_folder":   "'./data/eval/annotations/",     
+
+        "valid_times":          1
+    }
+}
